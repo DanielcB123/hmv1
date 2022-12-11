@@ -1,0 +1,14 @@
+redis-server
+php artisan serv
+
+    if(
+        Warning: no config file specified, using the default config. In order to specify a config file use C:\Program Files\Redis\redis-server.exe /path/to/redis.conf                                              &&
+        Creating Server TCP listening socket *:6379: bind: No such file or directory
+       )
+            {
+                redis-cli
+                shutdown
+                exit
+            }
+
+php artisan queue:work

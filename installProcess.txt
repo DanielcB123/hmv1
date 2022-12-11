@@ -1,0 +1,53 @@
+1.  Clone the repository from https://github.com/tenancy-for-laravel/saas-boilerplate
+
+2.  Copy contents of env.example to new .env
+
+3.  Get Nova auth(email) and password(licence key)
+
+4.  Have redis installed and make sure port is same port as in .env
+
+5.  in cmd line run php artisan key:generate
+
+6.  Create a MySQL database. If you want to use a non-root user, make sure
+    that the user has permissions to create other users and access all databases
+    (or change the DB manager used for mysql to the one that does not create
+    permissions). Add the database name to your .env
+
+7.  To config/database add to connections:
+                                            'mysql' => [
+                                                'driver' => 'mysql',
+                                                'url' => env('DATABASE_URL'),
+                                                'host' => env('DB_HOST', '127.0.0.1'),
+                                                'port' => env('DB_PORT', '3307'),
+                                                'database' => env('DB_DATABASE', 'forge'),
+                                                'username' => env('DB_USERNAME', 'forge'),
+                                                'password' => env('DB_PASSWORD', ''),
+                                                'unix_socket' => env('DB_SOCKET', ''),
+                                                'charset' => 'utf8mb4',
+                                                'collation' => 'utf8mb4_unicode_ci',
+                                                'prefix' => '',
+                                                'prefix_indexes' => true,
+                                                'strict' => true,
+                                                'engine' => null,
+                                                'options' => extension_loaded('pdo_mysql') ? array_filter([
+                                                    PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                                                ]) : [],
+                                            ],
+
+
+7.  clear config cache: php artisan config:cache
+
+8.  run migrations: php artisan migrate
+
+9.  inside the hosts file in C:\Windows\System32\drivers\etc run as admin and add the line: 127.0.0.1   localhost
+
+10  run php artisan serve
+
+11. run php artisan queue:work
+
+12. If using PHPStorm run composer require --dev barryvdh/laravel-ide-helper
+
+13. If using PHPStorm run php artisan ide-helper:generate
+
+14. Read more about using PHPStorm at https://github.com/barryvdh/laravel-ide-helper
+
