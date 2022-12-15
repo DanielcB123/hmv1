@@ -1,13 +1,6 @@
 # A1AMS Multi-tenant SaaS boilerplate
 
 
-
-# Basic information
-
-The boilerplate is an application skeleton. This means that it's not a package, but instead, a repository that you clone and use to build your application.
-
-Think of this as `laravel new`, except it comes with many more features you'd have to normally build yourself.
-
 ### Requirements
 
 The boilerplate uses Laravel 9. PHP 7.4 and 8.\* are supported.
