@@ -1,4 +1,4 @@
-# A1AMS Multi-tenant SaaS boilerplate
+# HeavyMetal Multi-tenant SaaS boilerplate
 
 
 ### Requirements
