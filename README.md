@@ -1,11 +1,6 @@
-# Multi-tenant SaaS boilerplate
+# A1AMS Multi-tenant SaaS boilerplate
 
-# License information
 
-- Your license includes access to this repo for 1 GitHub user.
-- You may share the codebase with your entire team.
-- You may use the codebase for an unlimited number of projects.
-- **YOU MAY NOT REPUBLISH ANY PARTS OF THE CODE PUBLICLY**. Your repo will get removed if we contact GitHub, so make sure you keep all repos private! You'll also get kicked from this repo and will not receive any future updates.
 
 # Basic information
 
