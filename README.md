@@ -1,4 +1,4 @@
-# A1AMS Multi-tenant SaaS boilerplate
+# A1AMS Multi-tenant SaaS
 
 
 ### Requirements
