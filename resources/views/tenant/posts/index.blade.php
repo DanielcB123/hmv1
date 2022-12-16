@@ -2,7 +2,8 @@
 
 @section('content')
 
-<div class="">
+{{-- <div class="w-5/6"> --}}
+<div class="w-full">
   <div class="max-w-7xl mx-auto">
     <x-button class="px-5" as="a" href="{{ route('tenant.posts.create') }}">New post</x-button>
     <div class="">

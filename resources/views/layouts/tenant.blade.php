@@ -16,66 +16,85 @@
     <!-- Styles -->
     <link href="{{ mix('css/app.css') }}" rel="stylesheet">
 
+
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
     @stack('head')
 </head>
 
-<body class="bg-gray-100 h-screen antialiased">
+<body class="bg-gray-500 h-screen antialiased flex">
+
+
+    {{-- Side Nav (Desktop) --}}
+    <nav class="hidden lg:block w-64 h-full">
+        <div class="w-full h-full bg-gray-50 p-3">
+
+            test
+
+            
+        </div>
+    </nav>
+
     <div id="app">
-        <nav class="bg-gray-900">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex items-center justify-between h-16">
-                    <div>
-                        <a href="{{ route('tenant.posts.index') }}" class="text-sm font-medium text-white">Posts
-                        </a>
-                    </div>
 
 
-                    <div class="">
-                        <div class="ml-4 flex items-center md:ml-6">
-                            @guest
-                                <x-button class="mt-1" as="a" href="{{ route('tenant.login') }}">Login</x-button>
 
-                                @if (Route::has('tenant.register'))
-                                    <x-button class="mt-1 ml-2" as="a" href="{{ route('tenant.register') }}">Register</x-button>
-                                @endif
-                            @else
-                                <div x-data="{ expanded: false }" @click.outside="expanded = false" class="ml-3 relative z-10">
-                                    <div>
-                                        <button @click="expanded = !expanded" class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none">
-                                            <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->gravatar_url }}" alt="{{ auth()->user()->name }}">
-                                        </button>
-                                    </div>
-                                    <div x-show="expanded" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg" style="display: none;">
-                                        <div class="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5">
-                                            <a href="{{ route('tenant.settings.user') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">My account
+
+    {{-- Top Nav (Mobile) --}}
+    <nav class="bg-red-500 block lg:hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div>
+                    <a href="{{ route('tenant.posts.index') }}" class="text-sm font-medium text-white">Posts
+                    </a>
+                </div>
+
+
+                <div class="">
+                    <div class="ml-4 flex items-center md:ml-6">
+                        @guest
+                            <x-button class="mt-1" as="a" href="{{ route('tenant.login') }}">Login</x-button>
+
+                            @if (Route::has('tenant.register'))
+                                <x-button class="mt-1 ml-2" as="a" href="{{ route('tenant.register') }}">Register</x-button>
+                            @endif
+                        @else
+                            <div x-data="{ expanded: false }" @click.outside="expanded = false" class="ml-3 relative z-10">
+                                <div>
+                                    <button @click="expanded = !expanded" class="max-w-xs flex items-center text-sm rounded-full text-white focus:outline-none">
+                                        <img class="h-8 w-8 rounded-full" src="{{ auth()->user()->gravatar_url }}" alt="{{ auth()->user()->name }}">
+                                    </button>
+                                </div>
+                                <div x-show="expanded" class="absolute right-0 mt-2 w-48 rounded-md shadow-lg" style="display: none;">
+                                    <div class="py-1 rounded-md bg-white ring-1 ring-black ring-opacity-5">
+                                        <a href="{{ route('tenant.settings.user') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">My account
+                                        </a>
+                                        @if (auth()->user()->isOwner())
+                                            <a href="{{ route('tenant.settings.application') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Application settings
                                             </a>
-                                            @if (auth()->user()->isOwner())
-                                                <a href="{{ route('tenant.settings.application') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Application settings
-                                                </a>
-                                                <a href="{{ config('nova.path') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Admin panel
-                                                </a>
-                                            @endif
-                                            <a href="{{ route('tenant.logout') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100"
-                                                onclick="event.preventDefault();
-                                            document.getElementById('logout-form').submit();">
-                                                {{ __('Logout') }}
+                                            <a href="{{ config('nova.path') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100">Admin panel
                                             </a>
-                                            <form id="logout-form" action="{{ route('tenant.logout') }}" method="POST" class="hidden">
-                                                {{ csrf_field() }}
-                                            </form>
-                                        </div>
+                                        @endif
+                                        <a href="{{ route('tenant.logout') }}" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100"
+                                            onclick="event.preventDefault();
+                                        document.getElementById('logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+                                        <form id="logout-form" action="{{ route('tenant.logout') }}" method="POST" class="hidden">
+                                            {{ csrf_field() }}
+                                        </form>
                                     </div>
                                 </div>
-                            @endguest
-                        </div>
+                            </div>
+                        @endguest
                     </div>
                 </div>
             </div>
+        </div>
     </nav>
 
+
     @if (isset($title))
-        <header class="bg-white border-b border-gray-200">
+        <header class="bg-white border-b border-gray-200 w-full">
             <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                 <h1 class="text-3xl font-semibold text-gray-900">
                     {{ $title }}
@@ -84,7 +103,7 @@
         </header>
     @endif
 
-    <main>
+    <main class="w-full">
         <div class="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
             @if (session('success'))
                 <div x-data="{ show: true }" x-show="show" class="rounded-md bg-green-50 p-4 mb-6">

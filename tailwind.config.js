@@ -1,23 +1,12 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('tailwindcss/colors')
-
+/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     './resources/views/**/*.blade.php',
     './resources/css/**/*.css',
+    './resources/**/*.js',
   ],
   theme: {
-    extend: {
-      fontFamily: {
-        sans: ['Inter var', ...defaultTheme.fontFamily.sans],
-        colors: {
-          green: colors.emerald,
-        }
-      },
-    },
+    extend: {},
   },
-  plugins: [
-      require('@tailwindcss/forms'),
-  ]
+  plugins: [],
 }
-
